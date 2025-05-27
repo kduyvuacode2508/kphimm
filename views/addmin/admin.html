@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quản lý phim</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+</head>
+<body>
+
+    
+<div class="admin-container">
+    <h1>Quản lý Phim</h1>
+
+    <form id="filmForm">
+        <input type="hidden" id="filmId">
+        <input type="text" id="title" placeholder="Tên phim" required>
+
+        <label>Upload Ảnh:</label>
+        <input type="file" id="imageUpload" accept="image/*" required>
+
+        <label>Upload Video:</label>
+        <input type="file" id="videoUpload" accept="video/*" required>
+
+        <textarea id="text" placeholder="Nội dung phim" rows="4"></textarea>
+
+        <select id="type_film_id" required>
+            <option value="">-- Chọn thể loại --</option>
+            <option value="1">Anime</option>
+            <option value="2">Hành động</option>
+            <option value="3">Tình cảm</option>
+            <option value="4">Kinh dị</option>
+        </select>
+        <button type="submit">Lưu phim</button>
+    </form>
+
+    <div id="message"></div>
+
+    <h2>Danh sách phim</h2>
+    <div id="filmList"></div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

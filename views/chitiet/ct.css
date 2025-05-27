@@ -1,0 +1,158 @@
+header{
+    display: flex;
+    padding: 5px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #1b1919;
+    opacity: 0.7;
+    z-index: 999;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0px 10px 10px rgb(74, 72, 72);
+}
+
+#logon {
+    font-size: 30px;
+    font-weight: bold;
+    color: #c3111a;
+    margin-left: 10px;
+    padding: 5px 15px;
+    border-radius: 30px;
+    background-color: aliceblue;
+    font-family: 'Arial Black', sans-serif;
+    position: relative;
+    
+}
+
+
+.menu{
+    
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.menu2{
+    display: flex;
+    align-items: center;
+
+}
+#login{
+    padding: 0px 10px;
+    background-color: aliceblue;
+    padding: 10px 20px;
+    border-radius: 30px;
+    position: relative;
+   
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+#thongbao{
+    margin: 10px;
+}
+#container{
+    margin-top: 100px;
+   
+}
+#container-movie{
+    display: flex;
+    padding: 20px;
+    background-color:#1E1F29;
+    border-radius: 10px;
+ margin: 50px 100px;
+ box-shadow: 0px 0px 10px rgb(231, 231, 235);
+}
+.video{
+    width: 100%;
+}
+.movie-info h1{
+    font-size: 30px;
+    color:  whitesmoke;
+    font-weight: bolder;
+}
+
+
+@media (max-width: 1024px) {
+    #container-movie {
+        flex-direction: column;
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .banner {
+        margin: 0 auto;
+    }
+
+    .movie-info {
+        margin-top: 20px;
+    }
+
+    .video-container video {
+        width: 95%;
+    }
+
+    .list {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu2 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #login {
+        margin-top: 10px;
+    }
+
+    .episodes {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    }
+
+    .watch-now, .watch-heart {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .movie-info h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .watch-now, .watch-heart {
+        font-size: 16px;
+        height: 45px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+}
+

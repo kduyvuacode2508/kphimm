@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Máy Bay Nổ - Crash Game</title>
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translate(0, 0); }
+      20%, 60% { transform: translate(-5px, 0); }
+      40%, 80% { transform: translate(5px, 0); }
+    }
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(300px) rotate(720deg); opacity: 0; }
+    }
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle, #0f0f0f, #000);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .btn {
+      background: #00ffcc;
+      color: #000;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #00cc99;
+    }
+    .input-section, .leaderboard {
+      margin: 20px;
+      text-align: center;
+    }
+    .leaderboard table {
+      border-collapse: collapse;
+      width: 300px;
+      margin-top: 10px;
+    }
+    .leaderboard th, .leaderboard td {
+      border: 1px solid #fff;
+      padding: 8px;
+    }
+    .status-message {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #ff5555;
+    }
+    .plane {
+      width: 100px;
+      height: auto;
+      position: absolute;
+      left: 50px;
+      top: 400px;
+      display: none;
+      transform: rotate(10deg);
+      transition: transform 0.2s ease-in-out;
+      z-index: 10;
+    }
+    .plane.exploded {
+      animation: fall 2s ease forwards;
+    }
+    .explosion {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: url('https://i.imgur.com/5R3XmEJ.png') no-repeat center/cover;
+      animation: explode 0.8s ease forwards;
+      pointer-events: none;
+      z-index: 20;
+    }
+    .multiplier-display {
+      font-size: 2.5rem;
+      margin-top: 20px;
+      color: #00ffcc;
+    }
+    #smokeEffect {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: url('https://i.imgur.com/T3OdJ2p.png') no-repeat center/cover;
+      opacity: 0.5;
+      display: none;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-section" id="loginSection">
+    <input type="text" id="playerName" placeholder="Nhập tên bạn" />
+    <button class="btn" onclick="login()">Đăng nhập</button>
+  </div>
+
+  <div class="input-section" id="gameSection" style="display: none;">
+    <img id="plane" class="plane" src="https://i.imgur.com/V1RtwEy.png" alt="Plane" />
+    <div id="explosion" class="explosion" style="display:none;"></div>
+    <div id="smokeEffect"></div>
+    <div class="multiplier-display" id="multiplierDisplay">x1.00</div>
+    <div>Số dư: <span id="balance">1000</span> 💰</div>
+    <input type="number" id="betAmount" value="100" />
+    <button class="btn" onclick="placeBet()">Cược</button>
+    <button class="btn" onclick="cashOut()" id="cashOutBtn" style="display:none;">Rút Ngay 💸</button>
+    <div class="status-message" id="statusMessage"></div>
+  </div>
+
+  <div class="leaderboard">
+    <h3>Bảng Xếp Hạng</h3>
+    <table id="leaderboardTable">
+      <thead><tr><th>Tên</th><th>Tiền</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    const plane = document.getElementById("plane");
+    const explosion = document.getElementById("explosion");
+    const smokeEffect = document.getElementById("smokeEffect");
+    const statusMessage = document.getElementById("statusMessage");
+    const multiplierDisplay = document.getElementById("multiplierDisplay");
+    const balanceEl = document.getElementById("balance");
+    const cashOutBtn = document.getElementById("cashOutBtn");
+
+    let multiplier = 1.00;
+    let multiplierInterval;
+    let isExploded = false;
+    let isFlying = false;
+    let hasCashedOut = false;
+    let player = null;
+    let players = JSON.parse(localStorage.getItem("players") || '{}');
+    let currentBet = 0;
+
+    const takeoffSound = new Audio('takeoff.mp3');
+
+    function login() {
+      const name = document.getElementById("playerName").value.trim();
+      if (!name) return alert("Nhập tên hợp lệ!");
+      if (!players[name]) players[name] = 1000;
+      player = name;
+      updateBalance();
+      document.getElementById("loginSection").style.display = "none";
+      document.getElementById("gameSection").style.display = "block";
+      updateLeaderboard();
+    }
+
+    function updateBalance() {
+      balanceEl.textContent = players[player];
+    }
+
+    function updateLeaderboard() {
+      const tbody = document.querySelector("#leaderboardTable tbody");
+      const sorted = Object.entries(players).sort((a,b)=>b[1]-a[1]);
+      tbody.innerHTML = sorted.map(([name, money]) => `<tr><td>${name}</td><td>${money}</td></tr>`).join("");
+    }
+
+    function placeBet() {
+      const amount = parseInt(document.getElementById("betAmount").value);
+      if (isNaN(amount) || amount <= 0 || amount > players[player]) {
+        alert("Cược không hợp lệ");
+        return;
+      }
+      currentBet = amount;
+      players[player] -= amount;
+      updateBalance();
+      startNewRound();
+    }
+
+    function cashOut() {
+      if (!isFlying || hasCashedOut || isExploded || currentBet <= 0) return;
+      const won = currentBet * multiplier;
+      players[player] += Math.floor(won);
+      statusMessage.textContent = `✅ Bạn đã rút ở x${multiplier.toFixed(2)} và nhận ${Math.floor(won)} 💰`;
+      currentBet = 0;
+      hasCashedOut = true;
+      updateBalance();
+      updateLeaderboard();
+      cashOutBtn.style.display = 'none';
+    }
+
+    function updateMultiplier() {
+      multiplier += 0.01;
+      multiplierDisplay.textContent = 'x' + multiplier.toFixed(2);
+
+      const angle = (multiplier - 1) * 10;
+      plane.style.transform = `rotate(${angle}deg)`;
+
+      const top = parseInt(plane.style.top);
+      const left = parseInt(plane.style.left);
+      plane.style.top = (top - 1) + 'px';
+      plane.style.left = (left + 2) + 'px';
+
+      if (!isExploded && Math.random() < 0.005 * multiplier) {
+        triggerExplosion();
+      }
+    }
+
+    function triggerExplosion() {
+      clearInterval(multiplierInterval);
+      isExploded = true;
+      isFlying = false;
+      explosion.style.left = plane.style.left;
+      explosion.style.top = plane.style.top;
+      explosion.style.display = 'block';
+      explosion.classList.remove('explosion');
+      void explosion.offsetWidth;
+      explosion.classList.add('explosion');
+
+      smokeEffect.style.display = 'none';
+
+      plane.classList.add("exploded");
+      if (currentBet > 0) {
+        statusMessage.textContent = `💥 Máy bay nổ ở x${multiplier.toFixed(2)}! Bạn mất ${currentBet} 💸`;
+        currentBet = 0;
+      } else {
+        statusMessage.textContent = "💥 Máy bay đã nổ!";
+      }
+      cashOutBtn.style.display = 'none';
+
+      setTimeout(() => {
+        explosion.style.display = 'none';
+        plane.style.display = 'none';
+        plane.classList.remove("exploded");
+        updateLeaderboard();
+        updateBalance();
+        setTimeout(() => startNewRound(), 1000);
+      }, 2000);
+    }
+
+    function startNewRound() {
+      plane.style.top = "400px";
+      plane.style.left = "50px";
+      smokeEffect.style.display = "block";
+      takeoffSound.play();
+      multiplier = 1.00;
+      isExploded = false;
+      isFlying = true;
+      hasCashedOut = false;
+      multiplierDisplay.textContent = 'x1.00';
+      plane.style.display = "block";
+      statusMessage.textContent = "🚀 Máy bay đã cất cánh!";
+      if (currentBet > 0) cashOutBtn.style.display = 'inline-block';
+      multiplierInterval = setInterval(updateMultiplier, 50);
+    }
+
+    setTimeout(() => startNewRound(), 1000);
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("players", JSON.stringify(players));
+    });
+  </script>
+</body>
+</html>

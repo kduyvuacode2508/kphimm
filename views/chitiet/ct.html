@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Phim</title>
+    <link rel="stylesheet" href="/views/home/home.css">
+    <link rel="stylesheet" href="/views/home/responsive.css">
+    <link rel="stylesheet" href="ct.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" >
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1b1d28; 
+            color: white;
+            font-weight: bold;
+        }
+       
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        .user-options button {
+            background-color: #32CD32;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .banner img {
+    height: 100%;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+}
+        .movie-info {
+            
+            margin: 20px;
+        }
+        .watch-now {
+            background-color: #FF4500;
+            color: white;
+            width: 200px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+        .watch-now:hover{
+            background-color: #333;
+        }
+        .watch-heart{
+            background-color: #333;
+            color: white;
+            width: 200px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+        .watch-heart:hover{
+            background-color: #FF4500;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        video {
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 10px 10px;
+            
+        }
+        .episode-list {
+            padding: 20px;
+            background-color: #181818;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        .list{
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .episodes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+            gap: 10px;
+        }
+        .episodes button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #282828;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .vip {
+            background-color: gold;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="menu">
+            <div class="logo">
+               <img src="/ass/img/K.jpg" alt="">
+              </div>
+            <div class="menu3">
+              <ul>
+                <li><a href="../theloai/tl.html?type=1">Anime</a></li>
+                <li><a href="../theloai/tl.html?type=2">Hành động</a></li>
+                <li><a href="../theloai/tl.html?type=3">Tình cảm</a></li>
+                <li><a href="../theloai/tl.html?type=4">Kinh dị</a></li>
+              </ul>
+            </div>
+           <div class="menu2">
+           
+            <div  id="home">
+                <a href="home.html"> <i style="font-size:22px; color:#f4efef;"  class="fa-solid fa-house"></i></a>
+             </div>
+              <div id="timkiem">
+                <a href="/views/tk/tk.html"> <i style="font-size: 21px;color: #f4efef;"  class="fa-solid fa-magnifying-glass"></i></a>
+              </div>
+              <div id="message" >
+              <i style="margin-right: 15px;font-size: 21px;color:#f4efef;" onclick=" message()" class="fa-solid fa-comments"></i>
+                
+              </div>
+              <div id="thongbao">
+                <a href="thông báo .html"> <i style="font-size:21px; color:#f4efef;" class="fa-solid fa-bell"></i></a>
+             </div>
+             
+          <div id="login">
+             <a href="/views/login/login.html">ĐĂNG NHẬP </a>
+          </div>
+          <div class="hamburger" onclick="toggleMobileMenu()">
+            ☰
+        </div>
+    </div>
+</div>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="../theloai/tl.html?type=1">Anime</a>
+    <a href="../theloai/tl.html?type=2">Hành động</a>
+    <a href="../theloai/tl.html?type=3">Tình cảm</a>
+    <a href="../theloai/tl.html?type=4">Kinh dị</a>
+</div>
+       </div>
+    </header>
+    
+    <main id="container">
+    
+    </main>
+ 
+    <script type="module">
+        import jsonServer from 'https://cdn.jsdelivr.net/npm/json-server@1.0.0-beta.3/+esm'
+        </script>
+         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="ct.js"></script>
+</body>
+</html>

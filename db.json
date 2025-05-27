@@ -1,0 +1,285 @@
+{
+  "users": [
+    {
+      "email": "leduy250800@gmail.com",
+      "password": "12345",
+      "id": "3afd"
+    },
+    {
+      "id": "de1e",
+      "email": "leduy250800@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "d0f1",
+      "email": "leduy2508@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "6ceb",
+      "email": "leduy1112508@gmail.com",
+      "password": "12345555"
+    },
+    {
+      "id": "2eaa",
+      "email": "leduy1112502228@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "83f2",
+      "email": "leduy1112502228@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "3ffb",
+      "email": "leduy250800@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "8a80",
+      "email": "leduy250800@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "6de4",
+      "email": "leduy250800@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "0205",
+      "email": "leduy250800@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "1f65",
+      "email": "leduy250800@gmail.com",
+      "password": "Khanhduy.1"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "Thanh gương diệt quỹ",
+      "image": "/ass/img/back1.jpg",
+      "video": "https://drive.google.com/file/d/1HBDqoCY0x3IUtbSjVHxUYNtZHx2If0NI/view?usp=drive_link",
+      "text": "",
+      "likes": 20,
+      "type_film_id": "1"
+    },
+    {
+      "title": "One piece move",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1746800338/ohguuvydcbuc49qjxj6e.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1746800340/nlyl19cvoceqrsycncbp.mp4",
+      "text": "",
+      "type_film_id": "1",
+      "likes": 0,
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "title": "MAI",
+      "image": "/ass/img/mai2024.jpg",
+      "video": "/ass/img/vd phim'.mp4",
+      "text": "",
+      "likes": 11,
+      "type_film_id": "3"
+    },
+    {
+      "id": "4",
+      "title": " Bố già",
+      "image": "/ass/img/bogia.jpg",
+      "video": "/ass/img/vd phim'.mp4",
+      "text": "",
+      "likes": 0,
+      "type_film_id": "3"
+    },
+    {
+      "id": " 5",
+      "title": "Tron- Ares",
+      "image": "/ass/img/hh.jpg",
+      "video": "/ass/img/hh.mp4",
+      "text": "",
+      "likes": 0,
+      "type_film_id": "2"
+    },
+    {
+      "id": " 6",
+      "title": "Boruto: Naruto Next Generations ",
+      "image": "/ass/img/boruto.jpg",
+      "video": "/ass/img/boruto.mp4",
+      "text": "",
+      "likes": 0,
+      "type_film_id": "1"
+    },
+    {
+      "id": " 7",
+      "title": "Bộ tứ báo thủ",
+      "image": "/ass/img/btbt.webp",
+      "video": "/ass/img/btbt.mp4",
+      "text": "Nội dung: Câu chuyện xoay quanh bốn người bạn thân với những tính cách khác nhau. Họ luôn tìm cách tạo ra những trò đùa nghịch ngợm, gây ra không ít tình huống dở khóc dở cười. Bộ phim này chắc chắn sẽ mang lại những phút giây thư giãn đầy tiếng cười, đồng thời truyền tải những bài học sâu sắc về tình bạn và cuộc sống.​",
+      "likes": 0,
+      "type_film_id": "2"
+    },
+    {
+      "id": " 9",
+      "title": "Avatar: Fire and Ash",
+      "image": "/ass/img/maxresdefault.jpg",
+      "video": "/ass/img/Avatar 3-.mp4",
+      "text": "Nội dung: Tiếp nối thành công của phần trước, bộ phim tiếp tục hành trình khám phá hành tinh Pandora với những tình tiết hấp dẫn và kỹ xảo ấn tượng.​",
+      "likes": 9,
+      "type_film_id": "4"
+    },
+    {
+      "id": "8",
+      "title": "thanh gương diệt quỹ",
+      "image": "/ass/img/back1.jpg",
+      "video": "/ass/img/vd phim'.mp4",
+      "text": "",
+      "likes": 0,
+      "type_film_id": "1"
+    },
+    {
+      "id": "538a",
+      "title": "Inside Out 2",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745745224/tcf23wdzit2ytrxzmi28.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745745243/meylh68ql0vv3hvuamw6.mp4",
+      "text": "Tiếp tục câu chuyện về cô bé Riley và những cảm xúc bên trong cô, khi cô đối mặt với những thay đổi lớn trong cuộc sống.",
+      "type_film_id": "1",
+      "likes": 0
+    },
+    {
+      "id": "277a",
+      "title": "Kingdom of the Planet of the Apes",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745746365/t4o3wgyywcrnunya1vmz.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745746372/oqa6hkev7bjqkvdde3h0.mp4",
+      "text": "Tiếp tục câu chuyện về cô bé Riley và những cảm xúc bên trong cô, khi cô đối mặt với những thay đổi lớn trong cuộc sống.",
+      "type_film_id": "2",
+      "likes": 0
+    },
+    {
+      "id": "500b",
+      "title": "Borderlands",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745762120/rs38xrfvgphfi4crrfit.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745762175/othbofboei9hhs4mnkev.mp4",
+      "text": "Dựa trên trò chơi điện tử nổi tiếng, nhóm thợ săn kho báu khám phá hành tinh Pandora đầy nguy hiểm để tìm kiếm một kho báu huyền thoại.",
+      "type_film_id": "2",
+      "likes": 0
+    },
+    {
+      "id": "8e9c",
+      "title": "Wicked",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745762356/xddvtkrvbn8oxuzbhl8c.png",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745762407/gu9wjyztuorcdan6n2hz.mp4",
+      "text": "Chuyển thể từ vở nhạc kịch nổi tiếng, kể về mối quan hệ giữa hai phù thủy ở xứ Oz trước khi Dorothy đến.",
+      "type_film_id": "4",
+      "likes": 0
+    },
+    {
+      "id": "95ee",
+      "title": "Furiosa: A Mad Max Saga",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745762597/we2trc7emkz9aj7z3bsp.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745762630/d96ccvmbeljeelkihlcs.mp4",
+      "text": "Tiền truyện của \"Mad Max: Fury Road\", tập trung vào nhân vật Furiosa trong hành trình sinh tồn và tìm kiếm quê hương.",
+      "type_film_id": "2",
+      "likes": 0
+    },
+    {
+      "id": "510b",
+      "title": "Lật mặt 7",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745762879/jqwxghvgksueikvbupv2.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745762891/mo51xpfwrr70eyururrr.mp4",
+      "text": "Phần thứ 7 trong loạt phim \"Lật Mặt\" của Lý Hải, kể về một điều ước thay đổi cuộc đời và những hệ lụy không ngờ.",
+      "type_film_id": "3",
+      "likes": 0
+    },
+    {
+      "id": "9459",
+      "title": "Gặp Lại Chị Bầu",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745763016/ecakzsw0kp6enlooy4ga.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745763020/pash0b4sjtnmiesedryi.mp4",
+      "text": "Phúc là một chàng trai trẻ mồ côi từ nhỏ và phải đối mặt với cuộc sống đầy thách thức. Trong một lần không trả được nợ, Phúc bị một nhóm người cho vay truy đuổi và tình cờ rơi xuống sông. Mặc dù anh đã may mắn sống sót, song anh đã bị lạc vào quá khứ vào năm 1997. Ở thời điểm đó, Phúc gặp gỡ và yêu mến Ngọc Huyền, một cô gái tốt bụng nhưng lại giấu đi nhiều bí mật. Phúc và những người bạn ở nhà trọ của bà Lê đã cùng nhau trải qua những khoảnh khắc vui vẻ và ý nghĩa nhất của tuổi trẻ",
+      "type_film_id": "3",
+      "likes": 0
+    },
+    {
+      "id": "d8c2",
+      "title": "The Wild Robot",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745763428/vpdmxn7nfdgwmqbqllr7.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745763463/etpi0arcwuaaei6tguo1.mp4",
+      "text": "Roz, một robot bị mắc kẹt trên đảo hoang, học cách sinh tồn và chăm sóc một chú ngỗng con, khám phá ý nghĩa của sự sống và tình cảm.",
+      "type_film_id": "1",
+      "likes": 1
+    },
+    {
+      "id": "4072",
+      "title": "Kung Fu Panda 4",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745763804/gaefyjn0owus46mi7tlw.webp",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745763909/dnmliloyzjlw9xynvf8p.mp4",
+      "text": "Kung Fu Panda 4 là một bộ phim điện ảnh hoạt hình Mỹ thuộc thể loại hài võ thuật ra mắt vào năm 2024, do DreamWorks Animation sản xuất và Universal Pictures phát hành. Đây là phần bốn của ...",
+      "type_film_id": "1",
+      "likes": 0
+    },
+    {
+      "id": "614e",
+      "title": "mạnh",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1745942414/ljaemigtjzshkjityucp.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1745942420/bmuvdk365tvrdpgmaxho.mp4",
+      "text": "sắp lấy vợ",
+      "type_film_id": "2",
+      "likes": 0
+    },
+    {
+      "id": "2280",
+      "title": "Gấu trúc kung fu 3",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1747551103/nploifomlvzdxx6osihn.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1747551154/dhubtqxpt4lsjequwpus.mp4",
+      "text": "phim hay",
+      "type_film_id": "1",
+      "likes": 0
+    },
+    {
+      "id": "fe81",
+      "title": "Đại ngư hải đường",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1747551186/wbk8b6dqtnpvnpzv1ueh.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1747551211/tz3ka7z04l43wnnrs2zm.mp4",
+      "text": "phim hay",
+      "type_film_id": "3",
+      "likes": 0
+    },
+    {
+      "id": "f23f",
+      "title": "La Tiểu Hắc chiến ký",
+      "image": "https://res.cloudinary.com/dzyq7yykv/image/upload/v1747551294/qq50ze1zqy3ip8l5gy0x.jpg",
+      "video": "https://res.cloudinary.com/dzyq7yykv/video/upload/v1747551353/azxfwochix1zsgumjhwo.mp4",
+      "text": "phim hay",
+      "type_film_id": "4",
+      "likes": 0
+    }
+  ],
+  "film_type": [
+    {
+      "id": "1",
+      "name": "anime"
+    },
+    {
+      "id": "2",
+      "name": "hành động"
+    },
+    {
+      "id": "3",
+      "name": "tình cảm"
+    },
+    {
+      "id": "4",
+      "name": "kinh dị"
+    }
+  ],
+  "comment": [
+    {
+      "id": "1",
+      "filmId": "4",
+      "userId": "5",
+      "content": "phim hay"
+    }
+  ]
+}

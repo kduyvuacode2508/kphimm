@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm phim | KD.mov</title>
+    <link rel="stylesheet" href="/views/home/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+      body{
+        background-color: #1b1d28;
+      }
+        .search-container {
+          
+          margin: 50px;
+            padding-top: 150px;
+            text-align: center;
+            background-color:#1E1F29;
+            min-height: 100vh;
+            color: white;
+            padding: 50px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        }
+        .search-bar {
+          margin-top: 5px;
+            width: 60%;
+            padding: 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px #aaa;
+            
+        }
+        .search-results {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+        .search-card {
+            width: 220px;
+            border-radius: 10px;
+            overflow: hidden;
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .search-card:hover {
+            transform: translateY(-10px);
+        }
+        .search-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .search-card h3 {
+          
+            font-size: 20px;
+            color:whitesmoke;
+           
+        }
+        a{
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="menu">
+            <div class="logo">
+               <img src="/ass/img/K.jpg" alt="">
+              </div>
+            <div class="menu3">
+              <ul>
+                <li><a href="../theloai/tl.html?type=1">Anime</a></li>
+                <li><a href="../theloai/tl.html?type=2">Hành động</a></li>
+                <li><a href="../theloai/tl.html?type=3">Tình cảm</a></li>
+                <li><a href="../theloai/tl.html?type=4">Kinh dị</a></li>
+              </ul>
+            </div>
+           <div class="menu2">
+           
+            <div  id="home">
+                <a href="/views/home/home.html"> <i style="font-size:22px; color:#f4efef;"  class="fa-solid fa-house"></i></a>
+             </div>
+              <div id="timkiem">
+                <a href="/views/tk/tk.html"> <i style="font-size: 21px;color: #f4efef;"  class="fa-solid fa-magnifying-glass"></i></a>
+              </div>
+              <div id="message" >
+              <i style="margin-right: 15px;font-size: 21px;color:#f4efef;" onclick=" message()" class="fa-solid fa-comments"></i>
+                
+              </div>
+              <div id="thongbao">
+                <a href="thông báo .html"> <i style="font-size:21px; color:#f4efef;" class="fa-solid fa-bell"></i></a>
+             </div>
+             
+          <div id="login">
+             <a href="/views/login/login.html">ĐĂNG NHẬP </a>
+          </div>
+          <div class="hamburger" onclick="toggleMobileMenu()">
+            ☰
+        </div>
+    </div>
+</div>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="../theloai/tl.html?type=1">Anime</a>
+    <a href="../theloai/tl.html?type=2">Hành động</a>
+    <a href="../theloai/tl.html?type=3">Tình cảm</a>
+    <a href="../theloai/tl.html?type=4">Kinh dị</a>
+</div>
+       </div>
+    </header>
+    
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-bar" placeholder="Tìm tên phim...">
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <script>
+        const postsURL = "http://localhost:3000/posts";
+        const searchInput = document.getElementById("searchInput");
+        const searchResults = document.getElementById("searchResults");
+        let allFilms = [];
+
+        fetch(postsURL)//yêu cầu lấy danh sách phim
+            .then(res => res.json())//chuyển dữ liệu từ dạng json sang js
+            .then(data => {
+                allFilms = data;// lưu danh sách phim vào biến
+                renderResults(allFilms);//gọi hàm hiển thị tất cả phim ra màn hình.
+            });
+
+        searchInput.addEventListener("input", function () {//lắng ghe sự kiện input vào ô tìm kiếm
+            const keyword = this.value.toLowerCase();//lấy giá trị người dùng gõ, chuyển thành chữ thường để tìm kiếm không phân biệt hoa/thường.
+            const filtered = allFilms.filter(film => film.title.toLowerCase().includes(keyword));
+            renderResults(filtered);
+        });
+
+        function renderResults(films) {
+            searchResults.innerHTML = "";
+            if (films.length === 0) {
+                searchResults.innerHTML = "<p>Không tìm thấy phim nào.</p>";
+                return;
+            }
+            films.forEach(film => {
+                searchResults.innerHTML += `
+                    <div class="search-card">
+                        <a href="../chitiet/ct.html?id=${film.id}">
+                            <img src="${film.image}" alt="${film.title}">
+                            <h3>${film.title}</h3>
+                        </a>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phim Theo Thể Loại</title>
+  <link rel="stylesheet" href="/views/home/responsive.css">
+  <link rel="stylesheet" href="/views/home/home.css">
+</head>
+<body>
+  <header id="header">
+    <div class="menu">
+        <div class="logo">
+           <img src="/ass/img/K.jpg" alt="">
+          </div>
+        <div class="menu3">
+          <ul>
+            <li><a href="../theloai/tl.html?type=1">Anime</a></li>
+            <li><a href="../theloai/tl.html?type=2">Hành động</a></li>
+            <li><a href="../theloai/tl.html?type=3">Tình cảm</a></li>
+            <li><a href="../theloai/tl.html?type=4">Kinh dị</a></li>
+          </ul>
+        </div>
+       <div class="menu2">
+       
+        <div  id="home">
+            <a href="/views/home/home.html"> <i style="font-size:22px; color:#f4efef;"  class="fa-solid fa-house"></i></a>
+         </div>
+          <div id="timkiem">
+            <a href="/views/tk/tk.html"> <i style="font-size: 21px;color: #f4efef;"  class="fa-solid fa-magnifying-glass"></i></a>
+          </div>
+          <div id="message" >
+          <i style="margin-right: 15px;font-size: 21px;color:#f4efef;" onclick=" message()" class="fa-solid fa-comments"></i>
+            
+          </div>
+          <div id="thongbao">
+            <a href="thông báo .html"> <i style="font-size:21px; color:#f4efef;" class="fa-solid fa-bell"></i></a>
+         </div>
+         
+      <div id="login">
+         <a href="/views/login/login.html">ĐĂNG NHẬP </a>
+      </div>
+      <div class="hamburger" onclick="toggleMobileMenu()">
+        ☰
+    </div>
+</div>
+</div>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobileMenu">
+<a href="../theloai/tl.html?type=1">Anime</a>
+<a href="../theloai/tl.html?type=2">Hành động</a>
+<a href="../theloai/tl.html?type=3">Tình cảm</a>
+<a href="../theloai/tl.html?type=4">Kinh dị</a>
+</div>
+   </div>
+</header>
+
+  <h1 style="color: white; text-align: center;">Phim Theo Thể Loại</h1>
+  <div id="film-container" style="margin-top: 100px;"></div>
+
+  <script src="tl.js"></script>
+</body>
+</html>
